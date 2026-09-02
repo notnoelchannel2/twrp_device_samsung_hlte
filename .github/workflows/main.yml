@@ -45,7 +45,7 @@ jobs:
         cd ~/OFRP
         mkdir ~/.bin
         curl http://commondatastorage.googleapis.com/git-repo-downloads/repo > ~/.bin/repo
-        python3 ~/.bin/repo init --depth=1 -u https://github.com/unlegacy-devices/fox-7.1_manifest -b twrp-7.1
+        python3 ~/.bin/repo init --depth=1 -u https://github.com/unlegacy-devices/fox-7.1_manifest -b fox-7.1
         git clone --branch fox-7.1 --single-branch https://github.com/NotNoelChannel/twrp_device_samsung_hlte.git ~/OFRP/device/samsung/hlte
         git clone --depth=1 --branch android-7.1.2_r38 --single-branch https://android.googlesource.com/platform/prebuilts/gcc/linux-x86/arm/arm-eabi-4.8 /opt/toolchains/arm-eabi-4.8
         git clone --branch cm-14.1 --single-branch https://github.com/LineageOS/android_kernel_samsung_msm8974.git ~/OFRP/kernel/samsung/msm8974
