@@ -11,13 +11,13 @@ $(INSTALLED_RECOVERYIMAGE_TARGET): $(recovery_ramdisk)
 	$(hide) $(COMPRESS_COMMAND) "$(BUILT_RAMDISK_CPIO)"
 	@echo "------- Making recovery image -------"
 	$(hide) $(MKBOOTIMG) \
-		--kernel kernel/samsung/msm8974/arch/arm/boot/zImage \
-		--ramdisk $(BUILT_RAMDISK_CPIO).lzma \
-		--cmdline "$(BOARD_KERNEL_CMDLINE)" \
-		--base $(BOARD_KERNEL_BASE) \
-		--pagesize $(BOARD_KERNEL_PAGESIZE) \
-		$(BOARD_MKBOOTIMG_ARGS) \
-		-o $(INSTALLED_RECOVERYIMAGE_TARGET)
+	--kernel $(PRODUCT_OUT)/kernel \
+	--ramdisk $(BUILT_RAMDISK_CPIO).lzma \
+	--cmdline "$(BOARD_KERNEL_CMDLINE)" \
+	--base $(BOARD_KERNEL_BASE) \
+	--pagesize $(BOARD_KERNEL_PAGESIZE) \
+	$(BOARD_MKBOOTIMG_ARGS) \
+	-o $(INSTALLED_RECOVERYIMAGE_TARGET)
 	@echo "------- Made recovery image: $@ -------"
 	$(hide) echo -n "SEANDROIDENFORCE" >> $(INSTALLED_RECOVERYIMAGE_TARGET)
 	@echo "------- Lied about SEAndroid state to Samsung bootloader -------"
