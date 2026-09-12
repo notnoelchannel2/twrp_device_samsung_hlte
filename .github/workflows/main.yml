@@ -51,6 +51,7 @@ jobs:
     - name: Building OFRP
       run: |
         cd ~/OFRP
+        sed -i '/CONFIG_NO_ERROR_ON_MISMATCH/d' ~/OFRP/kernel/samsung/msm8974/scripts/Makefile.modpost
         source build/envsetup.sh
         export ALLOW_MISSING_DEPENDENCIES=true
         export LC_ALL=C
