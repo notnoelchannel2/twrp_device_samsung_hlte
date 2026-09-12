@@ -11,7 +11,7 @@ $(INSTALLED_RECOVERYIMAGE_TARGET): $(recovery_ramdisk)
 	$(hide) $(COMPRESS_COMMAND) "$(BUILT_RAMDISK_CPIO)"
 	@echo "------- Making recovery image -------"
 	$(hide) $(MKBOOTIMG) \
-		--kernel $(TARGET_KERNEL_SOURCE)/arch/arm/boot/$(BOARD_KERNEL_IMAGE_NAME) \
+		--kernel kernel/samsung/msm8974/arch/arm/boot/zImage \
 		--ramdisk $(BUILT_RAMDISK_CPIO).lzma \
 		--cmdline "$(BOARD_KERNEL_CMDLINE)" \
 		--base $(BOARD_KERNEL_BASE) \
